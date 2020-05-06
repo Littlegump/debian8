@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y python \
   supervisor \
   openssh-server \
   curl \
+  tcpdump \
   vim \
   libssl-dev \
   psmisc \
