@@ -1,0 +1,48 @@
+# 1. Basic
+Port 32200
+Protocol 2
+AddressFamily inet
+
+# 2. Authentication
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+AuthorizedKeysFile .ssh/authorized_keys
+
+KeyRegenerationInterval 3600
+ServerKeyBits 768
+UsePrivilegeSeparation yes
+LoginGraceTime 120
+
+PermitRootLogin no
+StrictModes yes
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+
+
+# 3. Features
+UseDNS no
+UsePAM no
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+AcceptEnv LANG LC_*
+
+
+# 4. Logging
+SyslogFacility AUTH
+LogLevel INFO
+
+
+# 5. x509
+Subsystem sftp /usr/lib/sftp-server
+

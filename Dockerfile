@@ -6,6 +6,7 @@ ADD . /root
 
 RUN apt-get update && apt-get install -y python \
   supervisor \
+  openssh-server \
   curl \
   vim \
   libssl-dev \
