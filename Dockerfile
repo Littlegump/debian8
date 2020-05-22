@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y python \
   libpcre3-dev \
   libz-dev \
   openssl \
+  autoconf \
   curl \
   libtool \
   tcpdump \
@@ -31,6 +32,6 @@ RUN apt-get update && apt-get install -y python \
   gnupg \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN /bin/bash install_ats.sh
+#RUN /bin/bash install_ats.sh
 
 ENTRYPOINT ["/bin/bash","/root/entrypoint.sh"]
