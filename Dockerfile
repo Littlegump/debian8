@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y python \
   openssh-server \
   libpcre3-dev \
   libz-dev \
+  autoconf \
   openssl \
   autoconf \
   curl \
