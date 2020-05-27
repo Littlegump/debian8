@@ -1,0 +1,4 @@
+redis>=3.0.0,<3.5.0
+
+[hiredis]
+hiredis>=0.1.3
