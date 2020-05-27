@@ -1,0 +1,12 @@
+-r requirements.txt
+
+coverage
+pytest
+testfixtures
+mock
+docopt
+tox
+python-coveralls
+ptpdb
+ptpython
+pysnooper

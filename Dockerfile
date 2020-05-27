@@ -1,27 +1,15 @@
-FROM debian:8.9
+FROM yinkaixuan0213/debian8_base:latest
 
-WORKDIR /root
+WORKDIR /data
 
-ADD . /root
+ADD . /data
 
-RUN apt-get update && apt-get install -y python \
-  supervisor \
-  openssh-server \
-  curl \
-  tcpdump \
-  vim \
-  libssl-dev \
-  psmisc \
-  wget \
-  man-db \
-  apt-transport-https \
-  python-pip \
-  git \
-  gcc \
-  make \
-  net-tools \
-  netcat \
-  gnupg \
-  && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN pip install redis redis-py-cluster
 
-ENTRYPOINT ["/bin/bash","/root/entrypoint.sh"]
+# install redis
+RUN wget http://download.redis.io/releases/redis-5.0.8.tar.gz && tar xzf redis-5.0.8.tar.gz && cd redis-5.0.8 && make
+
+# make bin
+RUN ln -sv /data/redis-5.0.8/src/redis* /usr/bin/
+
+ENTRYPOINT ["/bin/bash","/data/entrypoint.sh"]

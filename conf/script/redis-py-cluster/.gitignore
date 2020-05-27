@@ -1,0 +1,15 @@
+# Ignore all python compiled files
+*.pyc
+*.swp
+env27*
+.tox
+.coverage*
+dump.rdb
+redis-git
+htmlcov
+dist
+build
+*.egg-info
+.cache
+docs/_build
+docs/_build_html
