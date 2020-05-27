@@ -1,4 +1,4 @@
-FROM debian:10.3
+FROM debian:8.9
 
 WORKDIR /root
 
