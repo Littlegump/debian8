@@ -109,11 +109,12 @@ product_auth = ""
 admin_addr = "0.0.0.0:18080"
 EOF
 
-nohup etcd --name="codisInstance" &> etcd.log &
+nohup codis-dashboard -c dashboard.toml &> dashboard.log &
 if [ $? -ne 0 ];then
-  echo "codis-etcd start failed"
+  echo "codis-Dashboard start failed"
   exit 1
 fi
+
 nohup codis-server redis1.conf &> redis-6379.log &
 nohup codis-server redis2.conf &> redis-6380.log &
 nohup codis-server redis3.conf &> redis-6381.log &
@@ -129,11 +130,6 @@ nohup codis-proxy -c proxy2.toml &>proxy2.log &
 nohup codis-proxy -c proxy3.toml &>proxy3.log &
 if [ $? -ne 0 ];then
   echo "codis-proxy start failed"
-  exit 1
-fi
-nohup codis-dashboard -c dashboard.toml &> dashboard.log &
-if [ $? -ne 0 ];then
-  echo "codis-Dashboard start failed"
   exit 1
 fi
 nohup /root/go/src/github.com/CodisLabs/codis/bin/codis-fe -d codis.json --listen 0.0.0.0:8080 &> fe.log &
