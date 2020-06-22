@@ -24,4 +24,6 @@ RUN apt-get update && apt-get install -y python \
   gnupg \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+EXPOSE 32200 514
+
 ENTRYPOINT ["/bin/bash","/root/entrypoint.sh"]
